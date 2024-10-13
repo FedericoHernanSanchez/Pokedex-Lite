@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule,FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-log-in',
@@ -17,10 +17,11 @@ export class LogInComponent {
     password : new FormControl("",Validators.required)
    })
    
+   
    constructor(private router: Router) {} 
 
    login() {
-       const userId = Math.random().toString(36).substring(2,7)
+        const userId = uuidv4();
        localStorage.setItem("userId",userId)
        this.router.navigate(['']);
      }
