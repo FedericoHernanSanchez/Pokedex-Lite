@@ -1,0 +1,15 @@
+<div class="container">
+    <button class="logOut-button" (click)="logOut()">Cerrar Sesion</button>
+    <h1>Pokedex-Lite</h1>
+    @for (pokemon of pokemons; track pokemon.id) {
+        <div class="pokemon-detail" (click)="viewDetails(pokemon.id)">
+            <div class="pokemon-info">{{ pokemon.types.join('-') }}</div>
+            <div class="pokemon-info">{{pokemon.name}}</div>
+            <div class="pokemon-info">{{ pokemon.level }}</div>
+        </div>
+    }
+    <div class="buttons">
+        <button class="action-button" (click)="goBack()" [disabled]="!canGoBack">Volver a la página anterior</button>
+        <button class="action-button" (click)="loadMore()">Cargar más</button>
+    </div>
+</div>

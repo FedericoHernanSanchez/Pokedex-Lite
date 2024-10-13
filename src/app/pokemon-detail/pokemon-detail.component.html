@@ -1,0 +1,27 @@
+<div class="container">
+    <button class="logOut-button" (click)="logOut()">Cerrar Sesion</button>
+    <h1>Pokedex-Lite</h1>
+
+   
+    <div class="pokemon-detail" *ngIf="pokemon">
+        <div class="pokemon-info" *ngIf="pokemon.types">{{ pokemon.types?.join('-').toUpperCase() }}</div>
+        <div class="pokemon-info">{{ pokemon.name?.toUpperCase() }}</div>
+        <div class="pokemon-info">{{ pokemon.level }}</div>
+    </div>
+
+    <div class="container-img" *ngIf="pokemon?.image">
+        <img [src]="pokemon.image" alt="{{ pokemon.name }}" /> 
+    </div>
+
+    <div class="container-ability-evolution" *ngIf="pokemon && evolutions">
+        <h2>Habilidades</h2>
+        <p>{{ pokemon.abilities?.join('-').toUpperCase() }}</p>
+
+        <h2>Evoluciones</h2>
+        <div *ngFor="let evolution of evolutions">
+            <p>
+                <span>{{ evolution.name?.toUpperCase() }}</span> - Nivel de Evolución: {{ evolution.level }}
+            </p>
+        </div>
+    </div>
+</div>

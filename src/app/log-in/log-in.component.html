@@ -1,0 +1,8 @@
+<div class="container">
+  <form [formGroup]="profileForm" (ngSubmit)="login()">
+    <h1>Pokedex-Lite</h1>
+    <input type="text" placeholder="Usuario" formControlName="userName">
+    <input type="password" placeholder="Contraseña" formControlName="password">
+    <button type="submit" [disabled]="!profileForm.valid">Login</button>
+  </form>
+</div>
